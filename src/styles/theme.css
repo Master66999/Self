@@ -1,0 +1,112 @@
+/* ==========================================================================
+   THEME STYLESHEET: Modern White & Green Professional Theme
+   Atharva Lawange — Engineering Portfolio
+   ========================================================================== */
+
+:root {
+  --color-canvas: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-border: #E2E8F0;
+  --color-border-hover: #A7F3D0;
+  --color-text-main: #0F172A;
+  --color-text-muted: #64748B;
+  --color-emerald-primary: #059669;
+  --color-emerald-accent: #10B981;
+  --color-emerald-light: #ECFDF5;
+  --color-forest-dark: #064E3B;
+}
+
+/* Light background pattern with microscopic geometric grid */
+.bg-light-grid {
+  background-color: #F8FAFC;
+  background-image: 
+    radial-gradient(circle at 10% 15%, rgba(16, 185, 129, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 90% 85%, rgba(5, 150, 105, 0.04) 0%, transparent 40%),
+    linear-gradient(to right, rgba(0, 0, 0, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.025) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+}
+
+/* Glassmorphism for Light Mode */
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 4px 24px -2px rgba(15, 23, 42, 0.04), 0 2px 8px -1px rgba(15, 23, 42, 0.02);
+}
+
+.glass-card-elevated {
+  background: #FFFFFF;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  box-shadow: 0 10px 30px -4px rgba(16, 185, 129, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+}
+
+.glass-card-hover {
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 12px 32px -4px rgba(16, 185, 129, 0.14), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+/* Custom Clean Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #10B981;
+}
+
+/* ==========================================================================
+   ROCK-SOLID ATS RESUME PRINT STYLES
+   Ensures ONLY the resume prints cleanly across standard pages with zero cutoffs
+   ========================================================================== */
+@media print {
+  html, body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide everything on the page */
+  body * {
+    visibility: hidden !important;
+  }
+
+  /* Make ONLY the printable ATS resume container and its descendants visible */
+  #printable-ats-resume, #printable-ats-resume * {
+    visibility: visible !important;
+  }
+
+  #printable-ats-resume {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 12mm 15mm !important;
+    background: #FFFFFF !important;
+    box-shadow: none !important;
+    border: none !important;
+    display: block !important;
+    page-break-after: auto !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

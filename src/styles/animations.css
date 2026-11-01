@@ -1,0 +1,150 @@
+/* ==========================================================================
+   ANIMATIONS STYLESHEET: GSAP Triggers, Transitions & Micro-Interactions
+   Atharva Lawange — Engineering Portfolio
+   ========================================================================== */
+
+/* GSAP Text Trigger Line Masks */
+.gsap-text-mask {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.gsap-text-line {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* GSAP Reveal Targets - default initial states for smooth entrance */
+.gsap-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  will-change: transform, opacity;
+}
+
+.gsap-reveal-fade {
+  opacity: 0;
+  will-change: opacity;
+}
+
+.gsap-reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  will-change: transform, opacity;
+}
+
+.gsap-reveal-scale {
+  opacity: 0;
+  transform: scale(0.96);
+  will-change: transform, opacity;
+}
+
+/* Scrub Progress Bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #10B981, #059669, #34D399);
+  transform-origin: 0% 50%;
+  transform: scaleX(0);
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* Pulse Beacon */
+@keyframes emeraldPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.3;
+  }
+}
+
+.beacon-pulse {
+  animation: emeraldPulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Subtle Hover Shift */
+.btn-magnetic {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+.btn-magnetic:hover {
+  transform: translateY(-2px);
+}
+.btn-magnetic:active {
+  transform: translateY(0px);
+}
+
+/* ==========================================================================
+   EXTRA TEXT & LINK ANIMATIONS
+   Interactive animated link underlines, glowing shimmers, and role tickers
+   ========================================================================== */
+
+/* Interactive Animated Link with expanding gradient underline */
+.animated-text-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.25s ease;
+}
+
+.animated-text-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #059669, #10B981, #34D399);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 2px;
+}
+
+.animated-text-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Flowing Shimmer Gradient Text */
+@keyframes textShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient-text {
+  background: linear-gradient(90deg, #047857, #10B981, #0d9488, #059669);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmer 6s ease-in-out infinite;
+}
+
+/* Smooth Fade/Slide for Role Ticker */
+.ticker-slide-in {
+  animation: tickerSlide 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes tickerSlide {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
